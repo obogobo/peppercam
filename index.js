@@ -31,13 +31,34 @@
         document.body.setAttribute('style', `background-color: ${hex}`);
     }
 
-    const img = new Image();
-    img.src = '/video/stream.mjpg';
-    img.width = 640;
-    img.height = 480;
-
-    img.onload = function() {
-	setBackground(img);
-        setInterval(() => setBackground(img), 4000);
+    function flipIt() {
+        this.parentElement.classList.toggle('flipped');
     }
+
+    function init() {
+        const img = document.querySelector("#stream");
+        const vid = document.querySelector("#timelapse");
+        const mp4 = document.createElement('source');
+
+        // toggle views
+        img.onclick = flipIt;
+        vid.onclick = flipIt;
+
+        // average background color
+        img.onload = function() {
+            setBackground(img);
+            setInterval(() => setBackground(img), 4000);
+        }
+	    
+        // load live feed
+        img.src = "/video/stream.mjpg";
+
+        // load timelapse video
+        mp4.type = 'video/mp4';
+        mp4.src = '/plantz.mp4';
+        vid.appendChild(mp4);
+    }
+
+    init();
+
 })();

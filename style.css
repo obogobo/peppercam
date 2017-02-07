@@ -1,21 +1,47 @@
 html {
-  zoom: 75%;
   height: 100%;
+  zoom: 75%;
 }
 
 body {
   height: 100%;
   background-image: url(/assets/pepper.png);
+  
   transition: background-color 1000ms linear;
-}
-
-#video {
-  height: 100%;
-  background: url(/video/stream.mjpg) no-repeat center center;
+  perspective: 1200px;
 }
 
 #frame {
+  pointer-events: none;
+}
+
+#container {
   height: 100%;
-  background: url(/assets/frame.png) no-repeat center center;
+  position: relative;
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+#container.flipped {
+  transform: rotateY(180deg);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-item { 
+  display: block;
+  width: 640px;
+  height: 480px;
+  backface-visibility: hidden;
+}
+
+#timelapse {
+  transform: translate(-50%, -50%) rotateY(180deg);
 }
 
