@@ -1,3 +1,4 @@
-*/15 * * * * /home/pi/peppercam/sh/capture_still.sh >> /home/pi/cron.log 2>&1
-0 * * * * /home/pi/peppercam/sh/encode_timelapse.sh >> /home/pi/cron.log 2>&1
+@reboot /home/pi/peppercam/sh/stream.sh
+*/15 * * * * /home/pi/peppercam/sh/capture_still.sh
+0 */6 * * * /home/pi/peppercam/sh/encode_timelapse.sh |& tee -a /home/pi/encode.log
 
