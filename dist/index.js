@@ -18,10 +18,11 @@
             rgb[2] += pix[i+2];
         }
 
+        const pad = "00";
         const len = pix.length / 4;
-        const r = Math.round(rgb[0] / len).toString(16);
-        const g = Math.round(rgb[1] / len).toString(16);
-        const b = Math.round(rgb[2] / len).toString(16);
+        const r = (pad + Math.round(rgb[0] / len).toString(16)).slice(-2);
+        const g = (pad + Math.round(rgb[1] / len).toString(16)).slice(-2);
+        const b = (pad + Math.round(rgb[2] / len).toString(16)).slice(-2);
 
         return `#${r}${g}${b}`
     }
