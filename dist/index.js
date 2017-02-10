@@ -55,7 +55,7 @@
 
         // load timelapse video
         mp4.type = 'video/mp4';
-        mp4.src = '/plantz.mp4';
+        mp4.src = `/plantz.mp4?x=${+new Date()}`; // cache buster
         vid.appendChild(mp4);
     }
 
