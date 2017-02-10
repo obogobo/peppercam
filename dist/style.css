@@ -1,14 +1,18 @@
 html {
   height: 100%;
-  transform: scale(0.75);
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
 }
 
 body {
   height: 100%;
   background-image: url(/assets/pepper.png);
   
+  -webkit-transition: background-color 1000ms linear;
+  
   transition: background-color 1000ms linear;
-  perspective: 1200px;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
 }
 
 #frame {
@@ -19,29 +23,39 @@ body {
   height: 100%;
   position: relative;
 
+  -webkit-transition: -webkit-transform 1s;
+
+  transition: -webkit-transform 1s;
+
   transition: transform 1s;
-  transform-style: preserve-3d;
+
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 #container.flipped {
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 .centered {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .card-item { 
   display: block;
   width: 640px;
   height: 480px;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 #timelapse {
-  transform: translate(-50%, -50%) rotateY(180deg);
+  -webkit-transform: translate(-50%, -50%) rotateY(180deg);
+          transform: translate(-50%, -50%) rotateY(180deg);
 }
-
