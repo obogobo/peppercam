@@ -1,3 +1,4 @@
 @reboot /home/pi/peppercam/sh/stream.sh
+@reboot /home/pi/broadcast.sh
 */15 * * * * /home/pi/peppercam/sh/capture_still.sh
-# 0 */6 * * * /home/pi/peppercam/sh/encode_timelapse.sh
+0 */6 * * * /home/pi/sync.sh # first calls encode_timelapse.sh, then syncs
